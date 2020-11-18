@@ -1,0 +1,6 @@
+
+spring:
+  mvc:
+    static-path-pattern: '/assets/**'
+  resources:
+    static-locations: 'classpath:/assets/'

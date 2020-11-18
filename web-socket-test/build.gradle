@@ -1,0 +1,13 @@
+
+
+dependencies {
+    // spring boot
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
+    // websocket
+    implementation 'org.springframework.boot:spring-boot-starter-websocket'
+
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}

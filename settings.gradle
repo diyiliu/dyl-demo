@@ -1,0 +1,4 @@
+rootProject.name = 'dyl-demo'
+include 'web-socket-test'
+include 'spring-boot-test'
+

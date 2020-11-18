@@ -1,0 +1,47 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        jcenter()
+    }
+
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:2.2.10.RELEASE"
+    }
+}
+
+subprojects {
+    group = 'com.diyiliu.demo'
+    version = '2.0'
+
+    apply plugin: 'java'
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'java-library'
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        jcenter()
+    }
+
+    dependencyManagement {
+        imports {
+            mavenBom("org.springframework.boot:spring-boot-dependencies:2.2.10.RELEASE")
+        }
+    }
+
+    ext {
+        mapstructVersion = '1.4.0.Final'
+    }
+
+    dependencies {
+        compileOnly 'org.projectlombok:lombok'
+        annotationProcessor 'org.projectlombok:lombok'
+
+        implementation 'com.google.guava:guava:30.0-jre'
+
+
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+        testImplementation 'junit:junit:4.13'
+    }
+}
