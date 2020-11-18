@@ -1,10 +1,12 @@
 package com.diyilu.ws.support;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;
 import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBroker;
 import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerConfigurer;
+import org.springframework.web.socket.server.standard.ServerEndpointExporter;
 
 /**
  * Description: WebSocketConfig
@@ -23,7 +25,9 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
      */
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
-        registry.addEndpoint("/myws").withSockJS();
+        registry.addEndpoint("/myws")
+                .setAllowedOrigins("*")
+                .withSockJS();
     }
 
     /**
@@ -33,9 +37,9 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
      */
     @Override
     public void configureMessageBroker(MessageBrokerRegistry registry) {
-        // 设置一个或者多个代理前缀，在 Controller 类中的方法里面发生的消息，会首先转发到代理从而发送到对应广播或者队列中。
+        // 设置客户端订阅前缀。
         registry.enableSimpleBroker("/topic");
-        // 配置客户端发送请求消息的一个或多个前缀，该前缀会筛选消息目标转发到 Controller 类中注解对应的方法里
+        // 配置客户端发送前缀，该前缀会筛选消息目标转发到 Controller 类中注解对应的方法里
         registry.setApplicationDestinationPrefixes("/app");
     }
 }

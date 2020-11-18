@@ -25,4 +25,10 @@ public class HelloController {
 
         return "socket";
     }
+
+    @GetMapping("/ws2")
+    public String socket2()  {
+
+        return "socket2";
+    }
 }
