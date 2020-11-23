@@ -40,7 +40,6 @@ subprojects {
 
         implementation 'com.google.guava:guava:30.0-jre'
 
-
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
         testImplementation 'junit:junit:4.13'
     }
