@@ -3,4 +3,8 @@ include 'web-socket-test'
 include 'spring-boot-test'
 include 'elasticsearch-demo'
 include 'spring-async-test'
+include 'pattern:observer-test'
+findProject(':pattern:observer-test')?.name = 'observer-test'
+include 'pattern:strategy-test'
+findProject(':pattern:strategy-test')?.name = 'strategy-test'
 
